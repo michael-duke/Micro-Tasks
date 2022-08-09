@@ -1,42 +1,30 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Project Name
+# Micro-Tasks
+![microtasks-logo](https://user-images.githubusercontent.com/84629565/183671773-33c95fd9-f2b9-4a48-a4ff-258e67a93057.jpg)
 
-> Description the project.
+
+> Micro-Taks is an interactive project where you can create different daily task list. Functionalities include adding and removing a task. 
 
 
 ## Built With
 
-- Major languages
-- Frameworks
-- Technologies used
+- HTML, TailwindCSS, JavaScript
+- Webpack, Linters (Stylelint,ESLint, WebHint)
 
-## Live Demo (if available)
+## Live Demo 
 
-[Live Demo Link](https://livedemo.com)
+Not yet :smile:
 
 
 ## Getting Started
 
-**This is an example of how you may give instructions on setting up your project locally.**
-**Modify this file to match your project, remove sections that don't apply. For example: delete the testing section if the currect project doesn't require testing.**
-
-
 To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-### Setup
-
 ### Install
-
+Have NodeJS installed and follow the next steps
 ### Usage
-
-### Run tests
-
-### Deployment
-
-
+- `npm i` for installing dev dependecies
+- `npm run build` or `npm start` to see the project
 
 ## Authors
 
@@ -45,13 +33,6 @@ To get a local copy up and running follow these simple example steps.
 - GitHub: [@michael-duke](https://github.com/michael-duke)
 - Twitter: [@MikeDuke21](https://twitter.com/MikeDuke21)
 - LinkedIn: [MICHAEL MESFIN](https://linkedin.com/in/https://www.linkedin.com/in/michael-21-duke/)
-
-👤 **Author2**
-
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
-
 
 ## 🤝 Contributing
 
