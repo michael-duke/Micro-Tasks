@@ -5,5 +5,14 @@ const taskList = new TodoList();
 const { todoList } = taskList;
 document.addEventListener(
   'DOMContentLoaded',
-  dynamicTodo.render(todoList),
+  dynamicTodo.render(todoList, taskList),
 );
+
+const addBtn = document.querySelector('.add-btn');
+addBtn.onclick = () => taskList.getInput();
+
+const todoDesc = document.getElementById('todo-desc');
+todoDesc.addEventListener('keypress', (event) => {
+  const { key } = event;
+  if (key === 'Enter') taskList.getInput();
+});
