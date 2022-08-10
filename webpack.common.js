@@ -21,8 +21,6 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
-        include: path.join(__dirname, './assets'),
-        loader: 'file-loader',
         type: 'asset/resource',
       },
     ],
