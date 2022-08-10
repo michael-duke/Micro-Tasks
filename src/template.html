@@ -63,7 +63,7 @@
           <button type="button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
+              class="h-6 w-6 stroke-gray-400"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
@@ -80,19 +80,24 @@
         <div
           class="flex justify-between border border-b-0 border-x-0 border-gray-200 items-center w-full"
         >
-          <div class="form-floating w-full mx-2">
+          <div class="form-floating h-12 w-full mx-2">
             <input
               type="text"
-              class="form-control h-full block w-full text-base font-normal text-sky-700 bg-white bg-clip-padding rounded transition ease-in-out m-0 focus:text-gray-700 focus:outline-red-400"
+              class="form-control block w-full text-base font-normal text-sky-700 bg-white bg-clip-padding rounded transition ease-in-out m-0 focus:text-gray-700 focus:outline-red-400"
               id="todo-desc"
               placeholder="Todo here"
             />
             <label for="todo-desc" class="text-gray-500"
-              >Add to your list...</label
+              >Add to your list... </label
             >
           </div>
-          <button type="button" class="mx-2">
-            <img class="w-8 h-8" src="assets/icons/enter-key.png" alt="" />
+          <button
+            data-mdb-ripple="true"
+            data-mdb-ripple-color="light"
+            type="button"
+            class="mx-2 add-btn bg-slate-100 rounded shadow-md hover:bg-slate-300 hover:shadow-lg focus:bg-slate-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-300 active:shadow-lg active:text-white transition duration-150 ease-in-out"
+          >
+            <img class="w-10 h-10" src="assets/icons/enter-key.png" alt="" />
           </button>
         </div>
         <div

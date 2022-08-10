@@ -27,6 +27,16 @@ header img {
   width: 400px;
 }
 
+.del-btn svg,
+.edit-btn svg {
+  transition: 150ms;
+}
+
+.del-btn:hover svg,
+.edit-btn:hover svg {
+  stroke: #fff;
+}
+
 /* Scrollbar section */
 ::-webkit-scrollbar {
   width: 0.5625rem;
