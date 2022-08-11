@@ -1,11 +1,15 @@
 export default class TodoStatus {
-  static toggleTodo(todoId, checked, todoInstance) {
-    todoInstance.todoList[todoId].isComplete = checked;
-    todoInstance.saveTodos();
+  constructor(todoInstance) {
+    this.todoInstance = todoInstance;
   }
 
-  checkTodo(e, todoInstance) {
+  toggleTodo(todoId, checked) {
+    this.todoInstance.todoList[todoId].isComplete = checked;
+    this.todoInstance.saveTodos();
+  }
+
+  checkTodo(e) {
     const { target: { id: todoId, checked } } = e;
-    this.toggleTodo(todoId - 1, checked, todoInstance);
+    this.toggleTodo(todoId - 1, checked);
   }
 }

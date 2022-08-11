@@ -3,7 +3,6 @@ import CreateTodo from './create-Todo';
 import TodoStatus from './todo-Status';
 
 const dynamicTodo = new DynamicTodo();
-const todoStatus = new TodoStatus();
 
 class TodoList {
   constructor() {
@@ -54,6 +53,7 @@ class TodoList {
   }
 
   onChange(event) {
+    const todoStatus = new TodoStatus(this);
     todoStatus.checkTodo(event, this);
     dynamicTodo.render(this.todoList, this);
   }
