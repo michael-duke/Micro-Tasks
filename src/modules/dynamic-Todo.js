@@ -9,10 +9,12 @@ export default class DynamicTodo {
     const todoList = this.resetTodoDisplay();
 
     list.forEach((todo) => {
-      const { id, description } = todo;
+      const { id, description, isComplete } = todo;
 
       const todoContainer = document.createElement('div');
-      todoContainer.classList = 'todos-container flex justify-between border border-x-0 px-4 py-6 space-x-3';
+      todoContainer.setAttribute('draggable', true);
+      todoContainer.id = id;
+      todoContainer.classList = 'todos-container cursor-move draggable flex justify-between border border-x-0 px-4 py-6 space-x-3';
       if (todo.isEditing) {
         const newTextbox = document.createElement('input');
         newTextbox.id = `edit-todo-${id}`;
@@ -30,6 +32,7 @@ export default class DynamicTodo {
         text-gray-400
         whitespace-nowrap
         bg-slate-100
+        focus:bg-amber-400 focus:text-white focus:outline-none  focus:shadow-lg
         transition
         duration-150
         hover:bg-amber-500 hover:text-white`;
@@ -39,11 +42,21 @@ export default class DynamicTodo {
       } else {
         const checkBox = document.createElement('input');
         checkBox.type = 'checkbox';
-        checkBox.className = 'accent-red-500';
+        checkBox.id = id;
+        checkBox.checked = isComplete;
+        checkBox.onchange = (e) => todoInstance.onChange(e);
+        checkBox.addEventListener('change', (event) => {
+          const { target: { checked, nextSibling } } = event;
+          return checked
+            ? nextSibling.classList.add('line-through')
+            : nextSibling.classList.remove('line-through');
+        });
+        checkBox.className = 'checktodo h-4 w-4 accent-red-500 cursor-pointer';
 
         const todoDesc = document.createElement('span');
         todoDesc.innerText = description;
         todoDesc.className = 'todo-desc ml-2';
+        if (isComplete) todoDesc.classList.add('line-through');
 
         const todoLabel = document.createElement('label');
         todoLabel.append(checkBox, todoDesc);
@@ -163,18 +176,5 @@ export default class DynamicTodo {
       }
       todoList.appendChild(todoContainer);
     });
-    const clearAllBtn = document.createElement('button');
-    clearAllBtn.type = 'button';
-    clearAllBtn.setAttribute('data-mdb-ripple', 'true');
-    clearAllBtn.setAttribute('data-mdb-ripple-color', 'light');
-    clearAllBtn.classList = `h-8 mt-4 border border-gray-200 bg-slate-100 text-gray-400
-    hover:bg-slate-300 hover:shadow-lg
-    focus:bg-slate-300 focus:shadow-lg focus:outline-none focus:ring-0
-    active:bg-slate-300 active:shadow-lg active:text-white
-    transition
-    duration-150
-    ease-in-out`;
-    clearAllBtn.innerText = 'Clear All Completed';
-    todoList.appendChild(clearAllBtn);
   }
 }
