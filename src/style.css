@@ -19,10 +19,6 @@ body {
   background-color: #f1f5dc;
 }
 
-header {
-  padding: 1rem;
-}
-
 header img {
   width: 400px;
 }
@@ -35,6 +31,10 @@ header img {
 .del-btn:hover svg,
 .edit-btn:hover svg {
   stroke: #fff;
+}
+
+.draggable.dragging {
+  opacity: 0.5;
 }
 
 /* Scrollbar section */

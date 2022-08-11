@@ -80,7 +80,7 @@
         <div
           class="flex justify-between border border-b-0 border-x-0 border-gray-200 items-center w-full"
         >
-          <div class="form-floating h-12 w-full mx-2">
+          <div class="form-floating h-16 w-full mx-2">
             <input
               type="text"
               class="form-control block w-full text-base font-normal text-sky-700 bg-white bg-clip-padding rounded transition ease-in-out m-0 focus:text-gray-700 focus:outline-red-400"
@@ -88,8 +88,8 @@
               placeholder="Todo here"
             />
             <label for="todo-desc" class="text-gray-500"
-              >Add to your list... </label
-            >
+              >Add to your list...
+            </label>
           </div>
           <button
             data-mdb-ripple="true"
@@ -103,6 +103,13 @@
         <div
           class="todos-display flex flex-col w-full overflow-y-scroll max-h-56"
         ></div>
+        <button
+          type="button"
+          data-mdb-ripple="true"
+          data-mdb-ripple-color="light"
+          class="clear-all-btn self-stretch capitalize mt-1 py-4 border border-gray-200 bg-slate-100 text-slate-500 font-medium hover:bg-slate-300 hover:shadow-lg focus:bg-slate-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-300 active:shadow-lg active:text-white transition duration-150 ease-in-out"
+        >clear all completed
+      </button>
       </section>
     </main>
   </body>
