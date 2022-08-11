@@ -1,7 +1,10 @@
 import DynamicTodo from './dynamic-Todo';
 import CreateTodo from './create-Todo';
+import TodoStatus from './todo-Status';
 
 const dynamicTodo = new DynamicTodo();
+const todoStatus = new TodoStatus();
+
 class TodoList {
   constructor() {
     this.todoList = JSON.parse(localStorage.getItem('todos')) || [];
@@ -41,13 +44,39 @@ class TodoList {
   onDelete(todoToDelete) {
     this.removeTodo(todoToDelete);
     dynamicTodo.render(this.todoList, this);
-    // this.isCollectionEmpty();
   }
 
   onUpdate(todoToUpdate) {
     const newTodoDesc = document.getElementById(`edit-todo-${todoToUpdate}`);
     const { value: description } = newTodoDesc;
     this.updateTodo(todoToUpdate - 1, description);
+    dynamicTodo.render(this.todoList, this);
+  }
+
+  onChange(event) {
+    todoStatus.checkTodo(event, this);
+    dynamicTodo.render(this.todoList, this);
+  }
+
+  clearAllCompleteTodos() {
+    this.todoList = this.todoList.filter(({ isComplete }) => isComplete === false);
+    this.reindexTodos();
+    this.saveTodos();
+  }
+
+  onClear() {
+    this.clearAllCompleteTodos();
+    dynamicTodo.render(this.todoList, this);
+  }
+
+  sortDraggedTodos(newTodoList) {
+    this.todoList = newTodoList;
+    this.reindexTodos();
+    this.saveTodos();
+  }
+
+  onDrag(todoList) {
+    this.sortDraggedTodos(todoList);
     dynamicTodo.render(this.todoList, this);
   }
 
@@ -63,9 +92,10 @@ class TodoList {
   }
 
   reindexTodos() {
-    for (let i = 0; i < this.todoList.length; i += 1) {
-      this.todoList[i].id = i + 1;
-    }
+    this.todoList = this.todoList.map((todo, index) => {
+      todo.id = index + 1;
+      return todo;
+    });
   }
 
   saveTodos() {
