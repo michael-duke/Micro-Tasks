@@ -1,4 +1,5 @@
 import './style.css';
+import 'tw-elements';
 import { TodoList, dynamicTodo } from './modules/todo-List';
 
 const taskList = new TodoList();
