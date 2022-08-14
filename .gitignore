@@ -4,4 +4,3 @@ node_modules/
 # VS code directory
 .vscode
 #Distribution directory from Webpack
-dist/
