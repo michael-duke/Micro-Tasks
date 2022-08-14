@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js",
-    "build": "webpack --config webpack.prod.js"
+    "build": "webpack --config webpack.prod.js",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -17,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/michael-duke/Micro-Tasks/issues"
   },
-  "homepage": "https://github.com/michael-duke/Micro-Tasks#readme",
+  "homepage": "https://github.com/michael-duke/Micro-Tasks",
   "devDependencies": {
     "autoprefixer": "^10.4.8",
     "babel-eslint": "^10.1.0",
@@ -46,6 +47,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+    "gh-pages": "^4.0.0",
     "tw-elements": "^1.0.0-alpha12"
   }
 }
