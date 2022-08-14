@@ -35,7 +35,7 @@ header img {
 }
 
 .draggable.dragging {
- opacity: 0.5;
+  opacity: 0.5;
 }
 
 /* Scrollbar section */
@@ -61,4 +61,3 @@ header img {
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(120 113 108);
 }
-
