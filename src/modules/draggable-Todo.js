@@ -1,43 +1,45 @@
+import { rotate } from './rotate-RefreshBtn';
+
 export default class DraggableTodo {
-  dragTodo(todoInstance) {
-    const draggables = document.querySelectorAll('.draggable');
-
-    draggables.forEach((todo) => {
-      todo.addEventListener('dragstart', () => {
-        todo.classList.add('dragging');
-      });
-      todo.addEventListener('dragend', () => {
-        todo.classList.remove('dragging');
-        draggables.forEach((draggable) => draggable.classList.remove('bg-orange-100'));
-        const { todoList } = todoInstance;
-
-        const newTodoList = [];
-        const toIdices = this.getTodoId();
-        toIdices.forEach((index) => {
-          newTodoList.push(todoList[index]);
-        });
-        todoInstance.onDrag(newTodoList);
-      });
-    });
-
-    const todosContainer = document.querySelector('.todos-display');
-    todosContainer.addEventListener('dragover', (e) => {
-      e.preventDefault();
-      const draggableTodos = [...todosContainer.querySelectorAll('.draggable:not(.dragging)')];
-      draggableTodos.forEach((draggableTodo) => draggableTodo.classList.add('bg-orange-100'));
-
-      const afterTodo = this.getDragAfterTodo(draggableTodos, e.clientY);
-      const draggable = document.querySelector('.dragging');
-      if (afterTodo === null) {
-        todosContainer.appendChild(draggable);
-      } else {
-        todosContainer.insertBefore(draggable, afterTodo);
-      }
-    });
+  constructor() {
+    this.draggingTodo = null;
   }
 
-  getDragAfterTodo(draggableTodos, y) {
-    return draggableTodos.reduce(
+  dragStartTodo(e) {
+    const { target: todo } = e;
+    this.draggingTodo = todo;
+    todo.classList.add('dragging');
+  }
+
+  dragEndTodo(e, todoInstance) {
+    const { target: todo } = e;
+    this.draggingTodo = todo;
+    const draggables = document.querySelectorAll('.draggable');
+    todo.classList.remove('dragging');
+    draggables.forEach((draggable) => draggable.classList.remove('bg-orange-100'));
+    rotate();
+    todoInstance.onDrag(DraggableTodo.getTodoIds());
+  }
+
+  static dragOverTodo(e) {
+    e.preventDefault();
+    const todosContainer = document.querySelector('.todos-display');
+    const draggableTodos = [
+      ...todosContainer.querySelectorAll('.draggable:not(.dragging)'),
+    ];
+    draggableTodos.forEach((draggableTodo) => draggableTodo.classList.add('bg-orange-100'));
+
+    const afterTodo = DraggableTodo.getDragAfterTodo(draggableTodos, e.clientY);
+    const draggable = document.querySelector('.dragging');
+    if (afterTodo) {
+      afterTodo.parentNode.insertBefore(draggable, afterTodo);
+    } else {
+      todosContainer.appendChild(draggable);
+    }
+  }
+
+  static getDragAfterTodo(draggables, y) {
+    return draggables.reduce(
       (closest, child) => {
         const box = child.getBoundingClientRect();
         const offset = y - box.top - box.height / 2;
@@ -49,11 +51,11 @@ export default class DraggableTodo {
     ).element;
   }
 
-  getTodoId() {
+  static getTodoIds() {
     const draggables = [...document.querySelectorAll('.draggable')];
-    return draggables.reduce((idList, todo) => {
-      idList.push(+todo.id - 1);
-      return idList;
+    return draggables.reduce((indices, { id }) => {
+      indices.push(+id - 1);
+      return indices;
     }, []);
   }
 }

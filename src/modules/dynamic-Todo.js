@@ -1,3 +1,6 @@
+import DraggableTodo from './draggable-Todo';
+
+const draggableTodo = new DraggableTodo();
 export default class DynamicTodo {
   resetTodoDisplay = () => {
     const todoDisplay = document.querySelector('.todos-display');
@@ -7,14 +10,17 @@ export default class DynamicTodo {
 
   render(list, todoInstance) {
     const todoList = this.resetTodoDisplay();
-
+    todoList.ondragover = (e) => DraggableTodo.dragOverTodo(e);
     list.forEach((todo) => {
       const { id, description, isComplete } = todo;
 
       const todoContainer = document.createElement('div');
       todoContainer.setAttribute('draggable', true);
+      todoContainer.ondragstart = (e) => draggableTodo.dragStartTodo(e);
+      todoContainer.ondragend = (e) => draggableTodo.dragEndTodo(e, todoInstance);
       todoContainer.id = id;
       todoContainer.classList = 'todos-container cursor-move draggable flex justify-between border border-x-0 px-4 py-6 space-x-3';
+
       if (todo.isEditing) {
         const newTextbox = document.createElement('input');
         newTextbox.id = `edit-todo-${id}`;
@@ -46,7 +52,9 @@ export default class DynamicTodo {
         checkBox.checked = isComplete;
         checkBox.onchange = (e) => todoInstance.onChange(e);
         checkBox.addEventListener('change', (event) => {
-          const { target: { checked, nextSibling } } = event;
+          const {
+            target: { checked, nextSibling },
+          } = event;
           return checked
             ? nextSibling.classList.add('line-through')
             : nextSibling.classList.remove('line-through');
