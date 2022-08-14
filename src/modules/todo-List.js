@@ -1,6 +1,7 @@
 import DynamicTodo from './dynamic-Todo';
 import CreateTodo from './create-Todo';
 import TodoStatus from './todo-Status';
+import { rotate, rotateReverse } from './rotate-RefreshBtn';
 
 const dynamicTodo = new DynamicTodo();
 
@@ -13,6 +14,7 @@ class TodoList {
   addTodo(todo) {
     this.todoList.push(todo);
     this.saveTodos();
+    rotate();
     dynamicTodo.render(this.todoList, this);
   }
 
@@ -20,6 +22,7 @@ class TodoList {
     this.todoList = this.todoList.filter(({ id }) => id !== todoId);
     this.reindexTodos();
     this.saveTodos();
+    rotateReverse();
   }
 
   // Sets Todo for Editing
@@ -59,24 +62,30 @@ class TodoList {
   }
 
   clearAllCompleteTodos() {
-    this.todoList = this.todoList.filter(({ isComplete }) => isComplete === false);
+    this.todoList = this.todoList.filter(
+      ({ isComplete }) => isComplete === false,
+    );
     this.reindexTodos();
     this.saveTodos();
   }
 
   onClear() {
     this.clearAllCompleteTodos();
+    rotateReverse();
     dynamicTodo.render(this.todoList, this);
   }
 
   sortDraggedTodos(newTodoList) {
-    this.todoList = newTodoList;
+    this.todoList = this.todoList.map((todo, i) => {
+      todo = this.todoList[newTodoList[i]];
+      return todo;
+    });
     this.reindexTodos();
     this.saveTodos();
   }
 
-  onDrag(todoList) {
-    this.sortDraggedTodos(todoList);
+  onDrag(todoIds) {
+    this.sortDraggedTodos(todoIds);
     dynamicTodo.render(this.todoList, this);
   }
 
