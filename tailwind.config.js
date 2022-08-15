@@ -12,6 +12,10 @@ module.exports = {
       },
       screens: {
         sm: { max: '768px' },
+        ms: { max: '1212px' },
+      },
+      colors: {
+        'regal-beige': '#f1f5dc',
       },
     },
   },
