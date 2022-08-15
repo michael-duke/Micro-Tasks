@@ -20,10 +20,6 @@ body {
   background-color: #f1f5dc;
 }
 
-header img {
-  width: 400px;
-}
-
 .del-btn svg,
 .edit-btn svg {
   transition: 150ms;

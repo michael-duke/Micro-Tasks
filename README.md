@@ -12,9 +12,14 @@
 - HTML, TailwindCSS, JavaScript
 - Webpack, Linters (Stylelint,ESLint, WebHint)
 
+## Website Mockup 📱 💻 🖥️
+![screenshot](https://user-images.githubusercontent.com/84629565/184623960-d732c862-6f4a-4259-8e60-30aa59be1049.jpg)
+![screenshot](https://user-images.githubusercontent.com/84629565/184621225-532edb86-662e-4849-ac61-79774148eeec.jpg)
+![screenshot](https://user-images.githubusercontent.com/84629565/184622032-0ffb0298-d225-4854-8a7f-689551386292.jpg)
+![screenshot](https://user-images.githubusercontent.com/84629565/184623964-70abb02b-35f2-4fff-a641-ef95ac587e0e.jpg)
 ## Live Demo 
 
-Not yet :smile:
+:smile: Take a look [here](https://michael-duke.github.io/Micro-Tasks/)
 
 
 ## Getting Started
@@ -46,9 +51,10 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
+- [Microverse](https://microverse.org)
 - Inspiration
-- etc
+  - [Vitor Guedes Madeira](https://github.com/Vitor-Guedes-Madeira)
+  - [Virag Kormoczy](https://github.com/virag-ky)
 
 ## 📝 License
 
