@@ -28,15 +28,15 @@
     <link rel="stylesheet" href="https://fonts.cdnfonts.com/css/cocogoose" />
   </head>
   <body>
-    <main class="flex justify-center w-screen ms:flex-col">
+    <main class="flex justify-center w-screen ms:flex-col items-center">
       <section
-      class="todo-section flex flex-col md:self-center bg-white md:min-w-[600px] sm:mx-2 md:w-6/12"
+      class="todo-section flex flex-col bg-white md:min-w-[600px] sm:mx-2 md:w-6/12 w-11/12"
       >
       <div class="flex justify-center bg-regal-beige">
-        <img class="w-[400px]" src="assets/microtasks-logo.png" alt="microtasks-logo" />
+        <img class="w-[400px] h-[100px] object-cover my-3.5" src="assets/microtasks-logo.png" alt="microtasks-logo" />
       </div>
         <div class="title flex justify-between w-full px-2 py-3">
-          <h3>Today's Todos</h3>
+          <h3 class="font-bold text-gray-500 decoration-red-500 underline">Today's Todos</h3>
           <button type="button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -72,13 +72,13 @@
             data-mdb-ripple="true"
             data-mdb-ripple-color="light"
             type="button"
-            class="mx-2 add-btn bg-slate-100 rounded shadow-md hover:bg-slate-300 hover:shadow-lg focus:bg-slate-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-300 active:shadow-lg active:text-white transition duration-150 ease-in-out"
+            class="mx-2 w-max add-btn bg-slate-100 rounded shadow-md hover:bg-slate-300 hover:shadow-lg focus:bg-slate-300 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-slate-300 active:shadow-lg active:text-white transition duration-150 ease-in-out"
           >
             <img class="w-12 h-10" src="assets/icons/enter-key.png" alt="" />
           </button>
         </div>
         <div
-          class="todos-display flex flex-col w-full overflow-y-scroll max-h-56"
+          class="todos-display flex flex-col w-full overflow-y-scroll max-h-72"
         ></div>
         <button
           type="button"
@@ -89,6 +89,7 @@
       </button>
       </section>
       <section class="self-center">
+        <h2 class="text-[0px] visually-hidden">Header background image</h2>
         <img class="w-[600px]" src="./assets/header-bg.jpg" alt="header-bg">
       </section>
     </main>

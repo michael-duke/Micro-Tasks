@@ -1,19 +1,13 @@
 import { rotate } from './rotate-RefreshBtn';
 
 export default class DraggableTodo {
-  constructor() {
-    this.draggingTodo = null;
-  }
-
-  dragStartTodo(e) {
+  static dragStartTodo(e) {
     const { target: todo } = e;
-    this.draggingTodo = todo;
     todo.classList.add('dragging');
   }
 
-  dragEndTodo(e, todoInstance) {
+  static dragEndTodo(e, todoInstance) {
     const { target: todo } = e;
-    this.draggingTodo = todo;
     const draggables = document.querySelectorAll('.draggable');
     todo.classList.remove('dragging');
     draggables.forEach((draggable) => draggable.classList.remove('bg-orange-100'));
