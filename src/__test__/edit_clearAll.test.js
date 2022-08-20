@@ -2,10 +2,10 @@
  * @jest-environment jsdom
  */
 
-const { internalIP } = require('webpack-dev-server');
 const { default: CreateTodo } = require('../modules/create-Todo');
 const { default: TodoStatus } = require('../modules/todo-Status');
 const { TodoList } = require('../modules/todo-List');
+
 const taskList = new TodoList();
 
 describe('Edit Todo', () => {
@@ -18,7 +18,7 @@ describe('Edit Todo', () => {
    `;
 
     taskList.addTodo(
-      new CreateTodo(taskList.todoList.length + 1, 'This Todo will be edited')
+      new CreateTodo(taskList.todoList.length + 1, 'This Todo will be edited'),
     );
 
     const [todo] = taskList.todoList;
@@ -29,22 +29,22 @@ describe('Edit Todo', () => {
     taskList.onUpdate(todo.id);
 
     const editedTodo = document.querySelectorAll(
-      '.todos-display div label span'
+      '.todos-display div label span',
     )[todo.id - 1];
     expect(editedTodo.innerText).toMatch('Check out API tutorials');
   });
 
   it('Edits a todo and check if localStorage is current', () => {
     taskList.addTodo(
-      new CreateTodo(taskList.todoList.length + 1, 'Make lunch before meeting')
+      new CreateTodo(taskList.todoList.length + 1, 'Make lunch before meeting'),
     );
     taskList.addTodo(
-      new CreateTodo(taskList.todoList.length + 1, 'Hello Todos')
+      new CreateTodo(taskList.todoList.length + 1, 'Hello Todos'),
     );
 
     taskList.updateTodo(
       taskList.todoList.length - 2,
-      'Lunch is done, start the meeting'
+      'Lunch is done, start the meeting',
     );
     const [, todo] = JSON.parse(localStorage.getItem('todos'));
 
@@ -61,7 +61,7 @@ describe('Completed flag Test', () => {
   `;
   it('isComplete flag is set to false by default', () => {
     taskList.todoList = [];
-    let todoDesc = document.getElementById('todo-desc');
+    const todoDesc = document.getElementById('todo-desc');
 
     const addBtn = document.querySelector('.add-btn');
     addBtn.onclick = () => taskList.getInput();
@@ -109,17 +109,17 @@ describe('ClearAll completed tasks', () => {
       new CreateTodo(
         taskList.todoList.length + 1,
         'Make lunch before meeting',
-        true
-      )
+        true,
+      ),
     );
     taskList.addTodo(
-      new CreateTodo(taskList.todoList.length + 1, 'Finish Microverse in JAN')
+      new CreateTodo(taskList.todoList.length + 1, 'Finish Microverse in JAN'),
     );
     taskList.addTodo(
-      new CreateTodo(taskList.todoList.length + 1, 'Complete Task 1', true)
+      new CreateTodo(taskList.todoList.length + 1, 'Complete Task 1', true),
     );
     taskList.addTodo(
-      new CreateTodo(taskList.todoList.length + 1, 'Complete Task 2')
+      new CreateTodo(taskList.todoList.length + 1, 'Complete Task 2'),
     );
 
     const clearBtn = document.querySelector('#clear-btn');
@@ -130,10 +130,10 @@ describe('ClearAll completed tasks', () => {
   });
 
   it('Clear completed task from the localStorage', () => {
-    taskList.todoList.forEach(todo => todo.isComplete=true);
+    taskList.todoList.forEach((todo) => { todo.isComplete = true; });
     taskList.clearAllCompleteTodos();
     const savedTodos = JSON.parse(localStorage.getItem('todos'));
 
-    expect(savedTodos).toHaveLength(0)
+    expect(savedTodos).toHaveLength(0);
   });
 });
