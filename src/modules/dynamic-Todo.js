@@ -27,6 +27,7 @@ export default class DynamicTodo {
         newTextbox.classList = 'block w-10/12 text-base font-normal pl-3 text-sky-700 outline outline-amber-300 bg-slate-100 bg-clip-padding rounded transition ease-in-out m-0 focus:text-gray-700';
 
         const updateButton = document.createElement('button');
+        updateButton.id =`update-btn-${id}`
         updateButton.innerText = 'UPDATE';
         updateButton.classList = 'py-2 px-4 font-normal rounded text-gray-400 whitespace-nowrap bg-slate-100 focus:bg-amber-400 focus:text-white focus:outline-none  focus:shadow-lg transition duration-150 hover:bg-amber-500 hover:text-white';
         updateButton.onclick = () => todoInstance.onUpdate(id);
