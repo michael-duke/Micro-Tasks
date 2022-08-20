@@ -7,6 +7,7 @@ const { TodoList } = require('../modules/todo-List');
 
 const taskList = new TodoList();
 
+//Test for Adding Todo
 describe('Add todos', () => {
   it('Renders todos to the DOM', () => {
     document.body.innerHTML = ` 
@@ -46,6 +47,7 @@ describe('Add todos', () => {
   });
 });
 
+//Test for Removing Todo
 describe('Remove todos', () => {
   it('Remove todo from the DOM', () => {
     document.body.innerHTML = ` 
