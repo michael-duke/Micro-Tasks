@@ -4,7 +4,7 @@
 ![microtasks-logo](https://user-images.githubusercontent.com/84629565/183671773-33c95fd9-f2b9-4a48-a4ff-258e67a93057.jpg)
 
 
-> Micro-Taks is an interactive project where you can create different daily task list. Functionalities include adding and removing a task, as well as sorting the todos with drag and drop. 
+> Micro-Taks is an interactive project where you can create different daily task list. Functionalities include adding and removing a task, as well as sorting the todos with drag and drop implementation. 
 
 
 ## Built With
@@ -53,7 +53,7 @@ Give a ⭐️ if you like this project!
 
 - [Microverse](https://microverse.org)
 - Inspiration
-  - [Vitor Guedes Madeira](https://github.com/Vitor-Guedes-Madeira)
+  - [Vitor Guedes Madeira](https://github.com/VitorGuedesMadeira)
   - [Virag Kormoczy](https://github.com/virag-ky)
 
 ## 📝 License
