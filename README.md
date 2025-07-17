@@ -19,7 +19,7 @@
 ![screenshot](https://user-images.githubusercontent.com/84629565/184623964-70abb02b-35f2-4fff-a641-ef95ac587e0e.jpg)
 ## Live Demo 
 
-:smile: Take a look [here](https://michael-duke.github.io/Micro-Tasks/)
+:smile: Take a look [here](https://micro-tasks.netlify.app/)
 
 
 ## Getting Started
